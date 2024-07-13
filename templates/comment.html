@@ -1,0 +1,68 @@
+<div style="">
+    <div
+        style="
+            border: 2px solid black;
+            padding: 5px;
+            display: flex;
+            gap: 5px;
+            flex-direction: column;
+        "
+    >
+        <p>
+            <span style="font-weight: bold"> {{ commenter_username }} </span> -
+            <span style="font-size: 10px; font-style: italic">
+                {{ created_at }}
+            </span>
+        </p>
+        <p style="font-size: 17px">{{ text }}</p>
+        <form
+            hx-post="/comment"
+            hx-target="#comments_container"
+            hx-swap="outerHTML"
+        >
+            <input type="text" name="text" required />
+            <input
+                type="hidden"
+                name="referenced_comment_id"
+                value="{{ comment_id }}"
+            />
+            <input type="hidden" name="post_id" value="{{ post_id }}" />
+            <button type="submit">Reply</button>
+        </form>
+    </div>
+
+    <div class="replies-container">
+        {% for comment in replies %}
+        <div class="reply-container">
+            <div class="rounded-indicator"></div>
+            <div style="margin-left: 20px; margin-top: 10px">
+                {{ comment|safe }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .replies-container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 5px;
+    }
+    .replies-container > div:last-child {
+        border-color: transparent;
+    }
+    .rounded-indicator {
+        border-bottom: 2px solid black;
+        border-left: 2px solid black;
+        width: 22px;
+        height: 20px;
+        border-radius: 0 0 0 10px;
+        position: absolute;
+        left: -2px;
+    }
+    .reply-container {
+        position: relative;
+        border-left: 2px solid black;
+    }
+</style>

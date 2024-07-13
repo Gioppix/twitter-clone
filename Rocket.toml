@@ -1,0 +1,9 @@
+[default]
+secret_key = "hPrYyЭRiMyµ5sBB1π+CMæ1køFsåqKvBiQJxBVHQk="
+address = "127.0.0.1"
+port = 8000
+
+
+# [default.tls]
+# certs = "tls/ca-cert.pem"
+# key = "tls/ca-key.pem"

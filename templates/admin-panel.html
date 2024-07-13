@@ -1,0 +1,9 @@
+{% extends "base-logged.html" %}
+
+{% block title %} Admin panel {% endblock %}
+
+{% block content %}
+    <h1>Admin panel</h1>
+    <p>GET hit count: {{get_hit_count}}</p>
+    <p>POST hit count: {{post_hit_count}}</p>
+{% endblock %} 

@@ -1,0 +1,29 @@
+// Static tasks configuration.
+//
+// Example:
+[
+  {
+    "label": "Cargo Watch",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": false,
+    "command": "cargo watch -c -x run"
+  },
+  {
+    "label": "Generate types",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": false,
+    "command": "cargo sqlx prepare"
+  },
+  {
+    "label": "Run SQL",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": false,
+    "command": "psql -q -c \"\\pset pager off\" postgres://postgres:password@localhost:5432/social -f $ZED_FILE"
+  },
+  {
+    "label": "Kill instances",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": false,
+    "command": "pkill -f rps"
+  }
+]

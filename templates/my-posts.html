@@ -1,0 +1,16 @@
+{% extends "base-logged.html" %}
+
+{% block title %} My Posts {% endblock %}
+
+{% block content %}
+
+<h1>My Posts</h1>
+<!-- <p>Hello, {{ user.username }}!</p> -->
+<ul>
+    {% for post in posts %}
+    <li>
+        {% include "post.html" %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %} 

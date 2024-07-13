@@ -1,0 +1,17 @@
+<div
+    id="comments_container"
+    style="display: flex; gap: 15px; flex-direction: column"
+>
+    <form
+        hx-post="/comment"
+        hx-target="#comments_container"
+        hx-swap="outerHTML"
+        style="margin-bottom: 10px"
+    >
+        <input type="text" name="text" required />
+        <input type="hidden" name="referenced_post_id" value="{{ post_id }}" />
+        <input type="hidden" name="post_id" value="{{ post_id }}" />
+        <button type="submit">Comment this post</button>
+    </form>
+    {% for comment in comments %} {{ comment|safe }} {% endfor %}
+</div>

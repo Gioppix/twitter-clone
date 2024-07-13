@@ -1,0 +1,13 @@
+<div style="margin: 10px; display: flex;flex-direction: column;gap:5px">
+    <p style="color: red">
+        <h3> {{ post.author.username }} </h3>
+        <p style="font-style: italic;">{{self::print_date(post.created_at)}}</p>
+        <!-- {% if post.editable %} <button>edit</button> {% endif %} -->
+    </p>
+    <p style="font-size: 20px;">{{ post.content|safe }}</p>
+    <div style="height: 20px;"></div>
+    {% let post_id = post.post_id %}
+    {% if let Some(comments) = post.maybe_comments %}
+        {% include "comments.html" %}
+    {% endif %}
+</div>

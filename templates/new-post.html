@@ -1,0 +1,16 @@
+{% extends "base-logged.html" %}
+
+{% block title %} New post {% endblock %}
+
+{% block content %}
+    <h1> New post </h1>
+    <form method="post" action="/post">
+        <label for="content">Content:</label>
+        <textarea id="content" name="content"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    {% if let Some(error) = error %}
+        <div id="response"> {{ error }} </div>
+    {% endif %}
+    
+{% endblock %} 

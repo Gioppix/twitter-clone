@@ -1,0 +1,11 @@
+DROP FUNCTION IF EXISTS get_user_by_token(TEXT);
+-- CREATE FUNCTION get_user_by_token(p_token TEXT)
+-- RETURNS TABLE (id INT, is_admin BOOLEAN, username TEXT, name TEXT, surname TEXT, session_start TIMESTAMPTZ) AS $$
+-- BEGIN
+--     RETURN QUERY
+--     SELECT users.id, users.is_admin, users.username, users."name", users.surname, sessions.session_start
+--     FROM users, sessions
+--     WHERE sessions.token = p_token and users.id = sessions.user_id
+--     LIMIT 1;
+-- END;
+-- $$ LANGUAGE plpgsql;

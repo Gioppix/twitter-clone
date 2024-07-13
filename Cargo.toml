@@ -1,0 +1,24 @@
+[package]
+name = "rps"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rocket = { version = "0.5.1", features = ["json", "tls"] }
+maud = { version = "0.26.0", features = ["rocket"] }
+serde = { version = "1.0", features = ["derive"] }
+sqlx = { version = "0.7", features = [
+    "runtime-tokio",
+    "postgres",
+    "time",
+    "uuid",
+] }
+
+askama = "0.12.1"
+html-escape = "0.2.13"
+
+[profile.dev.package.askama_derive]
+opt-level = 3
+
+[profile.dev.package.sqlx-macros]
+opt-level = 3

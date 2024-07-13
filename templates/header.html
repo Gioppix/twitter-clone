@@ -1,0 +1,21 @@
+<div>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/login">Login</a>
+        </li>
+        <li>
+            <a href="/logout">Logout</a>
+        </li>
+        <li>
+            <a href="/new">New</a>
+        </li>
+        {% if is_admin %}
+            <li>
+                <a href="/admin">Admin panel</a>
+            </li>
+        {% endif %}
+    </ul>
+</div>
