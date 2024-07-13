@@ -1,0 +1,23 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                        WITH new_session AS (\n                            INSERT INTO public.sessions (user_id, session_start)\n                            VALUES ($1, $2)\n                            RETURNING token\n                        )\n                        SELECT token FROM new_session;\n                        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "token",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4",
+        "Timestamptz"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "898d0643760d35313fb57cedaadc6609be3e1090182d2892a44e641f932a8e6b"
+}

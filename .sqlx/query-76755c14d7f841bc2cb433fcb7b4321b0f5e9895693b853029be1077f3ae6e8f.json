@@ -1,0 +1,29 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                    SELECT\n                        (select user_id from users where username = $1 limit 1) as username_present,\n                        (select user_id from users where username = $1 and password = crypt($2, password) limit 1) as user_id\n                ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "username_present",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "user_id",
+        "type_info": "Int4"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Text"
+      ]
+    },
+    "nullable": [
+      null,
+      null
+    ]
+  },
+  "hash": "76755c14d7f841bc2cb433fcb7b4321b0f5e9895693b853029be1077f3ae6e8f"
+}

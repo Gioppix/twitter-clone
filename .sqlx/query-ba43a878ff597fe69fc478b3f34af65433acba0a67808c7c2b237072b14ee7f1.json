@@ -1,0 +1,88 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                WITH RECURSIVE answers AS (select *\n                                        from comments\n                                        where referenced_post_id = $1\n\n                                        UNION ALL\n\n                                        select c.*\n                                        from comments c,\n                                                answers a\n                                        where c.referenced_comment_id = a.comment_id)\n\n                SELECT *\n                from answers, users\n                where users.user_id = answers.commenter\n                order by comment_id desc\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "comment_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "referenced_post_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 2,
+        "name": "referenced_comment_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 3,
+        "name": "text",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "commenter",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 5,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 6,
+        "name": "user_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 7,
+        "name": "username",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 8,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 9,
+        "name": "surname",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "password",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 11,
+        "name": "is_admin",
+        "type_info": "Bool"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "ba43a878ff597fe69fc478b3f34af65433acba0a67808c7c2b237072b14ee7f1"
+}

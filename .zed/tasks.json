@@ -6,7 +6,13 @@
     "label": "Cargo Watch",
     "allow_concurrent_runs": true,
     "use_new_terminal": false,
-    "command": "cargo watch -c -x run"
+    "command": "cargo watch -c -x run",
+    "env": {
+      "POSTGRES_HOST": "localhost",
+      "POSTGRES_USER": "postgres",
+      "POSTGRES_PASSWORD": "password",
+      "POSTGRES_DB": "social"
+    }
   },
   {
     "label": "Generate types",
@@ -25,5 +31,17 @@
     "allow_concurrent_runs": true,
     "use_new_terminal": false,
     "command": "pkill -f rps"
+  },
+  {
+    "label": "Create/update init.sql",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": false,
+    "command": "docker run --rm -e PGPASSWORD=password postgres:16.3 pg_dump -h host.docker.internal -U postgres -d social > init.sql"
+  },
+  {
+    "label": "Spawn default database",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": false,
+    "command": "docker run --rm -d --name postgres-instance -p 5432:5432 -v $(pwd)/init.sql:/docker-entrypoint-initdb.d/init.sql -e POSTGRES_USER=postgres  -e POSTGRES_PASSWORD=password  -e POSTGRES_DB=social postgres:16.3"
   }
 ]

@@ -1,0 +1,52 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                SELECT users.user_id, users.is_admin, users.username, users.name, users.surname, sessions.session_start\n                FROM users, sessions\n                WHERE sessions.token = $1 and users.user_id = sessions.user_id\n                LIMIT 1;\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "user_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "is_admin",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 2,
+        "name": "username",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "surname",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "session_start",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "7a0cb3929d1eb91bd54f38f7c858cc3e6decffcb51568e5e1e79afa1f162c467"
+}

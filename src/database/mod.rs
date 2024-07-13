@@ -1,3 +1,5 @@
+use std::env;
+
 use auth::{Account, LoginError, TokenError};
 use rocket::time::{Duration, OffsetDateTime};
 use sqlx::{postgres::PgPoolOptions, Pool, Postgres};
@@ -44,9 +46,15 @@ pub struct DatabaseInstance {
 
 impl DatabaseInstance {
     pub async fn new() -> Self {
+        let host = env::var("POSTGRES_HOST").expect("mysql_host missing from env");
+        let user = env::var("POSTGRES_USER").expect("mysql_user missing from env");
+        let password = env::var("POSTGRES_PASSWORD").expect("mysql_password missing from env");
+        let db = env::var("POSTGRES_DB").expect("mysql_db missing from env");
+
+        println!("{}", format!("postgres://{user}:{password}@{host}/{db}"));
         let pool = PgPoolOptions::new()
             .max_connections(5)
-            .connect("postgres://postgres:password@localhost/social")
+            .connect(&format!("postgres://{user}:{password}@{host}/{db}"))
             .await
             .unwrap();
 

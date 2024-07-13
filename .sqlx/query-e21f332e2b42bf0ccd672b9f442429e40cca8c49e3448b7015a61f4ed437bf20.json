@@ -1,0 +1,77 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                WITH new_post AS (\n                    INSERT INTO posts (author, content)\n                    VALUES ($1, $2)\n                    RETURNING *\n                )\n                SELECT * FROM new_post p, users u where p.author = u.user_id;\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "author",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "content",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 3,
+        "name": "post_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 4,
+        "name": "user_id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 5,
+        "name": "username",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "surname",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 8,
+        "name": "password",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 9,
+        "name": "is_admin",
+        "type_info": "Bool"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4",
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "e21f332e2b42bf0ccd672b9f442429e40cca8c49e3448b7015a61f4ed437bf20"
+}
