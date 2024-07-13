@@ -11,7 +11,7 @@ A Twitter-like application built with Rust, PostgreSQL, and HTMX.
   - Type-checking incoming requests at compile time
 - Minimal CSS
 - Key features
-  - Recursive comment structure ([example](http://0.0.0.0:8000/post/40))
+  - Recursive comment structure ([example](http://0.0.0.0:8000/post/40){:target="\_blank"})
   - New comments shown without reloading
 
 ## Getting Started
@@ -43,6 +43,10 @@ A Twitter-like application built with Rust, PostgreSQL, and HTMX.
 
 3. To update the database after making changes:
    - Run the task "Create/update init.sql"
+
+### Logging in
+
+You can log-in using "userX" as both username and password; X in [0, 20]
 
 ### Development
 
