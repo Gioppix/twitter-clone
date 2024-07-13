@@ -2,6 +2,18 @@
 
 A Twitter-like application built with Rust, PostgreSQL, and HTMX.
 
+# Project Overview
+
+- Small side project
+- Learning: Rust backend, HTMX frontend
+- Focus: Developer experience optimization
+  - Type-checking SQL queries at compile time
+  - Type-checking incoming requests at compile time
+- Minimal CSS
+- Key features
+  - Recursive comment structure ([example](http://0.0.0.0:8000/post/40))
+  - New comments shown without reloading
+
 ## Getting Started
 
 ### Prerequisites
