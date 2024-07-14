@@ -41,7 +41,7 @@ A Twitter-like application built with Rust, PostgreSQL, and HTMX.
 
    - Run the task "Generate types"
 
-3. To update the database after making changes:
+3. To persists database changes in git:
    - Run the task "Create/update init.sql"
 
 ### Logging in
