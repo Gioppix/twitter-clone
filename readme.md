@@ -46,7 +46,7 @@ A Twitter-like application built with Rust, PostgreSQL, and HTMX.
 
 ### Logging in
 
-You can log-in using "userX" as both username and password; X in [0, 20]
+You can log-in using "userX" as both username and password; X in [1, 20]
 
 ### Development
 
