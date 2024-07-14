@@ -23,26 +23,27 @@ A Twitter-like application built with Rust, PostgreSQL, and HTMX.
 
 ### Setup and Running
 
-1. Start the service using Docker Compose:
+Start the service using Docker Compose:
 
-   ```
-   docker compose up
-   ```
+```
+docker compose up
+```
 
-   This will start the application and its dependencies.
+This will start the application and its dependencies. Visit:
 
-2. Before building with Docker Compose, ensure that the types are up to date:
+```
+http://localhost:8000/
+```
 
-   a. Start the default database:
+Before building with Docker Compose, ensure that the types are up to date (if changes were made):
 
-   - Run the task "Spawn default database"
+1. Start the default database:
 
-   b. Generate types:
+- Run the task "Spawn default database"
 
-   - Run the task "Generate types"
+2. Generate types:
 
-3. To persists database changes in git:
-   - Run the task "Create/update init.sql"
+- Run the task "Generate types"
 
 ### Logging in
 
@@ -56,6 +57,10 @@ For hot reloading during development:
 2. Run the task "Cargo Watch"
 
 This will automatically reload the application when changes are detected.
+
+To persists database changes in git:
+
+- Run the task "Create/update init.sql"
 
 ## Technologies Used
 
